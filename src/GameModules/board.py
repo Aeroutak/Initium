@@ -4,4 +4,5 @@ class Board:
         self.board = open(self.boardFile, "r")
 
     def boardSize(self):
-        print(self.board.read())
+        firstline = self.board.readline()
+        print(firstline)
