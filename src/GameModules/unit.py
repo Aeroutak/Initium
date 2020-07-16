@@ -1,5 +1,4 @@
-def my_function():
-    print("Hello World!")
+from .gamemanager import GameManager
 
 class Unit:
     #basic unit with basic parameters.
@@ -9,20 +8,27 @@ class Unit:
         self.recovery = recovery
         #Basic parameters
         self.maxhp = 10
-        self.currenthp = 10
+        self.currenthp = self.maxhp
         self.hit = 0.8
         self.speed = 5
         self.dmg = 3
         self.mov = 4
         self.maxreactorpower = 10
-        self.currentreactorpower = 10
+        self.currentreactorpower = self.maxreactorpower
         self.status = "ALIVE"
 
-    def changehp(self, difference):
-        self.currenthp += difference
-        if(self.currenthp > self.maxhp):
-            self.currenthp = self.maxhp
-        if(self.currenthp < 0):
-            self.status = "DESTROYED"
+    def changecurrentstat(self, type, difference):
+        if type == 1:
+            self.currenthp += difference
+            GameManager.bound(0, self.maxhp, self.currenthp)
+        else:
+            self.currentreactorpower += difference
+            GameManager.bound(0, self.maxreactorpower, self.currentreactorpower)
+
+    def isDestroyed(self):
+        return self.currenthp == 0
+
+
+
 
 
