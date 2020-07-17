@@ -11,9 +11,11 @@ class GameManager:
 
     def combat(self, attackingunit, defendingunit):
         if random.random() < attackingunit.hit:
-            defendingunit.changehp(attackingunit.dmg)
-        if random.random() < defendingunit.hit & defendingunit.isDestroyed == False:
-            attackingunit.changehp(defendingunit.dmg)
+            defendingunit.changecurrentstat(1, -attackingunit.dmg)
+        print(defendingunit.currenthp)
+        if random.random() < defendingunit.hit: #need to add a deathcheck somewhere here
+            attackingunit.changecurrentstat(1, -defendingunit.dmg)
+        print(attackingunit.currenthp)
 
     def checkdestroyUnit(self, destroyedunit):
         if(destroyedunit.isDestroyed):

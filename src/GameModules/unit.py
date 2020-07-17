@@ -1,4 +1,5 @@
-from .gamemanager import GameManager
+def bound(low, high, value):
+    return max(low, min(high, value))
 
 class Unit:
     #basic unit with basic parameters.
@@ -20,10 +21,10 @@ class Unit:
     def changecurrentstat(self, type, difference):
         if type == 1:
             self.currenthp += difference
-            GameManager.bound(0, self.maxhp, self.currenthp)
+            bound(0, self.maxhp, self.currenthp)
         else:
             self.currentreactorpower += difference
-            GameManager.bound(0, self.maxreactorpower, self.currentreactorpower)
+            bound(0, self.maxreactorpower, self.currentreactorpower)
 
     def isDestroyed(self):
         return self.currenthp == 0
