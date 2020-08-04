@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Project"
-config/icon="res://icon.png"
+config/icon="res://Resources/icon.png"
 
 [rendering]
 
