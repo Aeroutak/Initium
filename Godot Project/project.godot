@@ -18,6 +18,11 @@ _global_script_class_icons={
 config/name="Godot Project"
 config/icon="res://Resources/icon.png"
 
+[autoload]
+
+Combat="*res://Scripts/Combat.gd"
+Unit="*res://Scripts/Unit.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
